@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+
+.banner{
+	background-image: url("/images/background.jpg");
+	background-size: cover;
+ 	background-repeat: no-repeat;
+ 	height: 550px;
+  	width: 100%;
+}
+
+h3{
+	color: white;
+	padding-top: 50px;
+}

@@ -1,0 +1,46 @@
+package com.example.demo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Product;
+import com.example.demo.repo.ProductRepository;
+
+@Service
+public class ProductService {
+
+	@Autowired
+	ProductRepository productRepository;
+	
+	public List<Product> getAllProducts(){
+		return productRepository.findAll();
+	}
+	public void addProduct(Product product) {
+		productRepository.save(product);
+	}
+	public void deleteProduct(Long id) {
+		productRepository.deleteById(id);
+	}
+	public Optional<Product> getProductById(Long id) {
+		return productRepository.findById(id);
+	}
+	public List<Product> getAllProductsByCategoryId(int id){
+		return productRepository.findAllByCategoryId(id);
+	}
+	
+//	public List<Product> getAllProductsByRestaurantId(int id){
+//		return productRepository.findAllByRestaurantId(id);
+//	}
+	
+	
+	public List<Product> getAllProductsByName(String name){
+		return productRepository.findAllByNameIgnoreCase(name);
+	}
+	public Object getAllProductsByRestaurantId(int id) {
+		return productRepository.findAllByRestaurantId(id);
+	}
+	
+}
